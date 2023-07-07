@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'dart:io';
 import 'dart:math';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
@@ -14,9 +13,7 @@ import 'gameEndPage.dart';
 /// Game page 
 class dicePage extends StatelessWidget {
   dicePage(this.username, {super.key});
-
   final String username;
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -40,9 +37,7 @@ class diceGamePage extends StatefulWidget {
 class _GameState extends State<diceGamePage> {
   _GameState(this.username);
   final String username;
-  
   late ShakeDetector detector;
-  
   int wurfel1 = 1;
   int round = 1;
   double x=0, xBefore=0;
@@ -56,12 +51,14 @@ class _GameState extends State<diceGamePage> {
     void initState() {
       super.initState();
       detector = ShakeDetector.autoStart(
-        onPhoneShake: () {setState(() {
-          _incrementCounter(random.nextInt(6) + 1);
-          round++;
-          wait();
-        });}
-        );
+        onPhoneShake: () {
+          setState(() {
+            _incrementCounter(random.nextInt(6) + 1);
+            round++;
+            wait();
+          });
+        }
+      );
     }
 
     @override
@@ -86,7 +83,6 @@ class _GameState extends State<diceGamePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
