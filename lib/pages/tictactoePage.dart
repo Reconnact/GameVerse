@@ -254,15 +254,4 @@ void _clearBoard() {
 
 	filledBoxes = 0;
 }
-
-void _clearScoreBoard() {
-	setState(() {
-	xScore = 0;
-	oScore = 0;
-	for (int i = 0; i < 9; i++) {
-		displayElement[i] = '';
-	}
-	});
-	filledBoxes = 0;
-}
 }
