@@ -1,0 +1,142 @@
+@startuml
+!pragma layout smetana
+set namespaceSeparator ::
+
+class "gameverse main.dart MyApp" {
+  +String username
+  +Widget build()
+}
+
+" StatelessWidget" <-- "gameverse main.dart MyApp"
+
+class "gameverse pages chicagoPage.dart chicagoPage" {
+  +String username
+  +Widget build()
+}
+
+" StatelessWidget" <-- "gameverse pages chicagoPage.dart chicagoPage"
+
+class "gameverse pages chicagoPage.dart HomeGamePage" {
+  +String username
+  +String title
+  +State<HomeGamePage> createState()
+}
+
+" StatefulWidget" <-- "gameverse pages chicagoPage.dart HomeGamePage"
+
+class "gameverse pages chicagoPage.dart _GameState" {
+  +ShakeDetector detector
+  +String username
+  +int wurfel1
+  +int wurfel2
+  +int round
+  +int goal
+  +int sum
+  +int points
+  +double x
+  +double xBefore
+  +bool shake
+  +bool started
+  +Random random
+  -List<StreamSubscription<dynamic>> _streamSubscriptions
+  +void initState()
+  +void dispose()
+  -void _incrementCounter()
+  +Widget build()
+}
+
+"gameverse pages chicagoPage.dart _GameState" o-- "shake shake.dart ShakeDetector"
+"gameverse pages chicagoPage.dart _GameState" o-- "dart math Random"
+" State" <-- "gameverse pages chicagoPage.dart _GameState"
+
+class "gameverse pages dicePage.dart dicePage" {
+  +String username
+  +Widget build()
+}
+
+" StatelessWidget" <-- "gameverse pages dicePage.dart dicePage"
+
+class "gameverse pages dicePage.dart diceGamePage" {
+  +String username
+  +String title
+  +State<diceGamePage> createState()
+}
+
+" StatefulWidget" <-- "gameverse pages dicePage.dart diceGamePage"
+
+class "gameverse pages dicePage.dart _GameState" {
+  +String username
+  +ShakeDetector detector
+  +int wurfel1
+  +int round
+  +double x
+  +double xBefore
+  +bool shake
+  +bool started
+  +Random random
+  -List<StreamSubscription<dynamic>> _streamSubscriptions
+  +void initState()
+  +void dispose()
+  -void _incrementCounter()
+  +void wait()
+  +Widget build()
+}
+
+"gameverse pages dicePage.dart _GameState" o-- "shake shake.dart ShakeDetector"
+"gameverse pages dicePage.dart _GameState" o-- "dart math Random"
+" State" <-- "gameverse pages dicePage.dart _GameState"
+
+class "gameverse pages tictactoePage.dart tictactoePage" {
+  +String username
+  +Widget build()
+}
+
+" StatelessWidget" <-- "gameverse pages tictactoePage.dart tictactoePage"
+
+class "gameverse pages tictactoePage.dart tictactoeGamePage" {
+  +String username
+  +String title
+  +State<tictactoeGamePage> createState()
+}
+
+" StatefulWidget" <-- "gameverse pages tictactoePage.dart tictactoeGamePage"
+
+class "gameverse pages tictactoePage.dart _GameState" {
+  +String username
+  +String title
+  +bool oTurn
+  +bool won
+  +List<String> displayElement
+  +int oScore
+  +int xScore
+  +int filledBoxes
+  +Widget build()
+  -void _tapped()
+  -void _checkWinner()
+  -void _showWinDialog()
+  -void _showDrawDialog()
+  -void _clearBoard()
+  -void _clearScoreBoard()
+}
+
+" State" <-- "gameverse pages tictactoePage.dart _GameState"
+
+class "gameverse pages startingPage.dart StartingPage" {
+  +String username
+  +bool checkUsername()
+  +Widget build()
+}
+
+" StatelessWidget" <-- "gameverse pages startingPage.dart StartingPage"
+
+class "gameverse pages gameEndPage.dart GameEndPage" {
+  +String username
+  +int points
+  +Widget build()
+}
+
+" StatelessWidget" <-- "gameverse pages gameEndPage.dart GameEndPage"
+
+
+
+@enduml
