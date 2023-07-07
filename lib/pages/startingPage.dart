@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'dicePage.dart';
 import 'tictactoePage.dart';
-import '../main.dart';
 import 'chicagoPage.dart';
+
 /// State for startingpage
 class StartingPage extends StatelessWidget {
   const StartingPage(this.username, {super.key});
 
   final String username;
+
   /// checks if username is empty
   bool checkUsername(String username) {
     if (username == "") {
@@ -16,19 +17,16 @@ class StartingPage extends StatelessWidget {
       return true;
     }
   }
+
   /// Builds the starting page
   @override
   Widget build(BuildContext context) {
     final usernameController = TextEditingController(text: username);
 
-    return Column( 
-
-      
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
       children: <Widget>[
-
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 16),
           child: TextFormField(
@@ -47,17 +45,16 @@ class StartingPage extends StatelessWidget {
           onPressed: () {
             final String username = usernameController.text;
             if (checkUsername(username) == true) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => dicePage(username)),
-                );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => dicePage(username)),
+              );
             } else {
               showDialog(
-                  context: context,
-                  builder: (context) =>
-                  const AlertDialog(
-                    title: Text("Dein Benutzername darf nicht leer sein!"),
-                  )
+                context: context,
+                builder: (context) => const AlertDialog(
+                  title: Text("Dein Benutzername darf nicht leer sein!"),
+                )
               );
             }
           },
@@ -71,17 +68,16 @@ class StartingPage extends StatelessWidget {
           onPressed: () {
             final String username = usernameController.text;
             if (checkUsername(username) == true) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => chicagoPage(username)),
-                );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => chicagoPage(username)),
+              );
             } else {
               showDialog(
-                  context: context,
-                  builder: (context) =>
-                  const AlertDialog(
-                    title: Text("Dein Benutzername darf nicht leer sein!"),
-                  )
+                context: context,
+                builder: (context) => const AlertDialog(
+                  title: Text("Dein Benutzername darf nicht leer sein!"),
+                )
               );
             }
           },
@@ -95,17 +91,18 @@ class StartingPage extends StatelessWidget {
           onPressed: () {
             final String username = usernameController.text;
             if (checkUsername(username) == true) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => tictactoePage(username)),
-                );
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => tictactoePage(username)
+                ),
+              );
             } else {
               showDialog(
-                  context: context,
-                  builder: (context) =>
-                  const AlertDialog(
-                    title: Text("Dein Benutzername darf nicht leer sein!"),
-                  )
+                context: context,
+                builder: (context) => const AlertDialog(
+                  title: Text("Dein Benutzername darf nicht leer sein!"),
+                ),
               );
             }
           },
